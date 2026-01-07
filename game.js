@@ -12,9 +12,18 @@ function getComputerChoice() {
 function getHumanChoice() {
     choice = prompt("Karpfen, Stein oder Papier?").toLowerCase();
     if (choice == "karpfen" || choice == "stein" || choice == "papier") {
-        console.log(`Du hast ${choice} gewählt`);
+        console.log(`du hast ${choice} gewählt`);
     } else {
         console.log("was soll das?");
         getHumanChoice();
     } return choice;
+}
+
+let humanScore = 0
+let computerScore = 0
+
+function playRound () {
+    humanChoice = getHumanChoice();
+    computerChoice = getComputerChoice();
+    console.log(`der computer hat ${computerChoice} gewählt`);
 }
