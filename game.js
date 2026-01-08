@@ -22,12 +22,29 @@ function getHumanChoice() {
 let humanScore = 0
 let computerScore = 0
 
+function gameWinner() {
+    if (humanScore == 5) {
+        winner = "mensch"
+    } else {
+        winner = "computer"
+    }
+    return winner;
+}
+
+function reset() {
+    humanScore = 0;
+    computerScore = 0;
+}
+
 function playRound () {
     humanChoice = getHumanChoice();
     computerChoice = getComputerChoice();
     console.log(`der computer hat ${computerChoice} gewählt`);
-    if ((humanChoice === "karpfen" && computerChoice === "stein") || (humanChoice === "papier" && computerChoice === "karpfen") ) {
+    if ((humanChoice === "karpfen" && computerChoice === "stein") || (humanChoice === "papier" && computerChoice === "karpfen") || (humanChoice === "stein" && computerChoice === "papier") ) {
         winner = "computer";
+    } else if (humanChoice == computerChoice) {
+        console.log("draw!")
+        winner = "niemand"
     } else {
         winner = "mensch";
     } 
@@ -37,27 +54,22 @@ function playRound () {
 
 function playGame() {
         playRound();
-        if (winner = "computer") {
-            ++computerScore
+        if (winner == "computer") {
+            ++computerScore;
+        } else if (winner == "niemand") {
+            ++computerScore;
+            ++humanScore;
         } else {
             ++humanScore
         };
-        if (humanScore < 5 || computerScore < 5) {
+        if (humanScore < 5 && computerScore < 5) {
             playGame()
         } else {
-            winner();
-            console.log(`${gameWinner} hat das spiel gewonnen`)
-            humanScore = 0
-            computerScore = 0
+            console.log(`${gameWinner()} hat das spiel gewonnen`)
+            reset();
         }
 
 }
 
-function winner() {
-    if (humanScore == 5) {
-        gameWinner = "mensch"
-    } else {
-        gamewinner = "computer"
-    }
-    return gameWinner;
-}
+
+
