@@ -26,4 +26,38 @@ function playRound () {
     humanChoice = getHumanChoice();
     computerChoice = getComputerChoice();
     console.log(`der computer hat ${computerChoice} gewählt`);
+    if ((humanChoice === "karpfen" && computerChoice === "stein") || (humanChoice === "papier" && computerChoice === "karpfen") ) {
+        winner = "computer";
+    } else {
+        winner = "mensch";
+    } 
+    console.log(`${winner} hat gewonnen`);
+    return winner;
+}
+
+function playGame() {
+        playRound();
+        if (winner = "computer") {
+            ++computerScore
+        } else {
+            ++humanScore
+        };
+        if (humanScore < 5 || computerScore < 5) {
+            playGame()
+        } else {
+            winner();
+            console.log(`${gameWinner} hat das spiel gewonnen`)
+            humanScore = 0
+            computerScore = 0
+        }
+
+}
+
+function winner() {
+    if (humanScore == 5) {
+        gameWinner = "mensch"
+    } else {
+        gamewinner = "computer"
+    }
+    return gameWinner;
 }
