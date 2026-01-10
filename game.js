@@ -66,6 +66,9 @@ function playGame() {
         }
         if (humanScore < 5 && computerScore < 5) {
             playGame();
+        } else if (humanScore == 5 && computerScore == 5) {
+            console.log("draw! das spiel beginnt von vorne");
+            reset();
         } else {
             console.log(`${gameWinner()} hat das spiel gewonnen`);
             reset();
