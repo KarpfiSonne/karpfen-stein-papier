@@ -16,7 +16,8 @@ function getHumanChoice() {
     } else {
         console.log("was soll das?");
         getHumanChoice();
-    } return choice;
+    } 
+    return choice;
 }
 
 let humanScore = 0;
