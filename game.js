@@ -1,11 +1,11 @@
 function getComputerChoice() {
     let rng = Math.random() * 100 +1;
     if (rng < 33.33) {
-        return "karpfen"
+        return "karpfen";
     } else if (rng < 66.66) {
-        return "stein"
+        return "stein";
     } else {
-        return "papier"
+        return "papier";
     }
 }
 
@@ -19,14 +19,14 @@ function getHumanChoice() {
     } return choice;
 }
 
-let humanScore = 0
-let computerScore = 0
+let humanScore = 0;
+let computerScore = 0;
 
 function gameWinner() {
     if (humanScore == 5) {
-        winner = "mensch"
+        winner = "mensch";
     } else {
-        winner = "computer"
+        winner = "computer";
     }
     return winner;
 }
@@ -40,7 +40,9 @@ function playRound () {
     humanChoice = getHumanChoice();
     computerChoice = getComputerChoice();
     console.log(`der computer hat ${computerChoice} gewählt`);
-    if ((humanChoice === "karpfen" && computerChoice === "stein") || (humanChoice === "papier" && computerChoice === "karpfen") || (humanChoice === "stein" && computerChoice === "papier") ) {
+    if ((humanChoice === "karpfen" && computerChoice === "stein") || 
+        (humanChoice === "papier" && computerChoice === "karpfen") || 
+        (humanChoice === "stein" && computerChoice === "papier") ) {
         winner = "computer";
     } else if (humanChoice == computerChoice) {
         console.log("draw!")
@@ -61,11 +63,11 @@ function playGame() {
             ++humanScore;
         } else {
             ++humanScore
-        };
+        }
         if (humanScore < 5 && computerScore < 5) {
-            playGame()
+            playGame();
         } else {
-            console.log(`${gameWinner()} hat das spiel gewonnen`)
+            console.log(`${gameWinner()} hat das spiel gewonnen`);
             reset();
         }
 
